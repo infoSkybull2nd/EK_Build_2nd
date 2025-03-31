@@ -28,10 +28,9 @@
             manifestUrl: "https://seahorse-magnetic-officially.ngrok.app/api/ftp/File/get-file/manifes.json"
         });
 
-        const tonweb = new TonWeb();
-        const Address = tonweb.Address;
+        const TonWeb = require("tonweb");
+        const tonweb = new TonWeb(new TonWeb.HttpProvider("https://toncenter.com/api/v2/jsonRPC"));
         console.log("hehe" + tonweb);
-        console.log("hehe address" + Address);
 
       var canvas = document.querySelector("#unity-canvas");
 
