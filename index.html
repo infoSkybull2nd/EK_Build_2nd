@@ -23,11 +23,6 @@
         </div>
     </div>
     <script>
-        window.tonConnect = new TON_CONNECT_UI.TonConnectUI({
-            manifestUrl: "https://seahorse-magnetic-officially.ngrok.app/api/ftp/File/get-file/manifes.json",
-            testnet: true
-        });
-
         var canvas = document.querySelector("#unity-canvas");
 
         // Shows a temporary message banner/ribbon for a few seconds, or
@@ -59,8 +54,8 @@
         var loaderUrl = buildUrl + "/0ffe6988281cbfd9fc0f06110132707e.loader.js";
         var config = {
             arguments: [],
-            dataUrl: buildUrl + "/1f70e891762b85d9d5dddf8cdd991d79.data.unityweb",
-            frameworkUrl: buildUrl + "/6771fce81606f5d353bc18da97958a89.framework.js.unityweb",
+            dataUrl: buildUrl + "/ef945e523cdd8f29dbfa5a5b0fdce3ff.data.unityweb",
+            frameworkUrl: buildUrl + "/8bc82eb2822686ffc87f4ed18b3f6aac.framework.js.unityweb",
             codeUrl: buildUrl + "/c1a59edb3150220a16b0b6b50fe4cb1f.wasm.unityweb",
             streamingAssetsUrl: "StreamingAssets",
             companyName: "Skybull",
@@ -125,6 +120,11 @@
 
     </script>
     <script>
+        window.tonConnect = new TON_CONNECT_UI.TonConnectUI({
+            manifestUrl: "https://seahorse-magnetic-officially.ngrok.app/api/ftp/File/get-file/manifes.json",
+            testnet: true
+        });
+
         function testJavaScriptFunction(recipientAddress, amount) {
             console.error("Unity says: " + recipientAddress);
 
