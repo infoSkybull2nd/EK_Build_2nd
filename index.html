@@ -120,7 +120,7 @@
 
     </script>
     <script type="module">
-        import { Address } from "@ton/core";
+        const { Address } = require('@ton/core');
 
         window.tonConnect = new TON_CONNECT_UI.TonConnectUI({
             manifestUrl: "https://seahorse-magnetic-officially.ngrok.app/api/ftp/File/get-file/manifes.json",
