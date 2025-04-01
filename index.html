@@ -9,119 +9,124 @@
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
 </head>
-  <body>
+<body>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=360 height=640 tabindex="-1"></canvas>
-      <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
+        <canvas id="unity-canvas" width=360 height=640 tabindex="-1"></canvas>
+        <div id="unity-loading-bar">
+            <div id="unity-logo"></div>
+            <div id="unity-progress-bar-empty">
+                <div id="unity-progress-bar-full"></div>
+            </div>
         </div>
-      </div>
-      <div id="unity-warning"> </div>
-      <div id="unity-footer">
-      </div>
+        <div id="unity-warning"> </div>
+        <div id="unity-footer">
+        </div>
     </div>
     <script>
         window.tonConnect = new TON_CONNECT_UI.TonConnectUI({
             manifestUrl: "https://seahorse-magnetic-officially.ngrok.app/api/ftp/File/get-file/manifes.json"
         });
 
-      var canvas = document.querySelector("#unity-canvas");
+        var canvas = document.querySelector("#unity-canvas");
 
-      // Shows a temporary message banner/ribbon for a few seconds, or
-      // a permanent error message on top of the canvas if type=='error'.
-      // If type=='warning', a yellow highlight color is used.
-      // Modify or remove this function to customize the visually presented
-      // way that non-critical warnings and error messages are presented to the
-      // user.
-      function unityShowBanner(msg, type) {
-        var warningBanner = document.querySelector("#unity-warning");
-        function updateBannerVisibility() {
-          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
-        }
-        var div = document.createElement('div');
-        div.innerHTML = msg;
-        warningBanner.appendChild(div);
-        if (type == 'error') div.style = 'background: red; padding: 10px;';
-        else {
-          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
-          setTimeout(function() {
-            warningBanner.removeChild(div);
+        // Shows a temporary message banner/ribbon for a few seconds, or
+        // a permanent error message on top of the canvas if type=='error'.
+        // If type=='warning', a yellow highlight color is used.
+        // Modify or remove this function to customize the visually presented
+        // way that non-critical warnings and error messages are presented to the
+        // user.
+        function unityShowBanner(msg, type) {
+            var warningBanner = document.querySelector("#unity-warning");
+            function updateBannerVisibility() {
+                warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+            }
+            var div = document.createElement('div');
+            div.innerHTML = msg;
+            warningBanner.appendChild(div);
+            if (type == 'error') div.style = 'background: red; padding: 10px;';
+            else {
+                if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+                setTimeout(function () {
+                    warningBanner.removeChild(div);
+                    updateBannerVisibility();
+                }, 5000);
+            }
             updateBannerVisibility();
-          }, 5000);
         }
-        updateBannerVisibility();
-      }
 
-      var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/3b008a31b3aaa9249127394c29bc5584.loader.js";
-      var config = {
-        arguments: [],
-        dataUrl: buildUrl + "/19ecc0d50acc0eaebc4f305c4593111a.data.unityweb",
-        frameworkUrl: buildUrl + "/633c4de0c8beca8f211512b76e765729.framework.js.unityweb",
-        codeUrl: buildUrl + "/c283c2bd4090b68809ff31e2df8e3caf.wasm.unityweb",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "Skybull",
-        productName: "Eternal Kings",
-        productVersion: "0.1.0",
-        showBanner: unityShowBanner,
-      };
+        var buildUrl = "Build";
+        var loaderUrl = buildUrl + "/8cb30b0d9eb906f3708496625f43164c.loader.js";
+        var config = {
+            arguments: [],
+            dataUrl: buildUrl + "/af340b6309868fe690ce36d11c321664.data.unityweb",
+            frameworkUrl: buildUrl + "/4d9ff6277812e184c750257b3c566680.framework.js.unityweb",
+            codeUrl: buildUrl + "/038aefc9abf32c24e03787b9b6839d18.wasm.unityweb",
+            streamingAssetsUrl: "StreamingAssets",
+            companyName: "Skybull",
+            productName: "Eternal Kings",
+            productVersion: "0.1.0",
+            showBanner: unityShowBanner,
+        };
 
-      // By default, Unity keeps WebGL canvas render target size matched with
-      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
-      // Set this to false if you want to decouple this synchronization from
-      // happening inside the engine, and you would instead like to size up
-      // the canvas DOM size and WebGL render target sizes yourself.
-      // config.matchWebGLToCanvasSize = false;
+        // By default, Unity keeps WebGL canvas render target size matched with
+        // the DOM size of the canvas element (scaled by window.devicePixelRatio)
+        // Set this to false if you want to decouple this synchronization from
+        // happening inside the engine, and you would instead like to size up
+        // the canvas DOM size and WebGL render target sizes yourself.
+        // config.matchWebGLToCanvasSize = false;
 
-      // If you would like all file writes inside Unity Application.persistentDataPath
-      // directory to automatically persist so that the contents are remembered when
-      // the user revisits the site the next time, uncomment the following line:
-      // config.autoSyncPersistentDataPath = true;
-      // This autosyncing is currently not the default behavior to avoid regressing
-      // existing user projects that might rely on the earlier manual
-      // JS_FileSystem_Sync() behavior, but in future Unity version, this will be
-      // expected to change.
+        // If you would like all file writes inside Unity Application.persistentDataPath
+        // directory to automatically persist so that the contents are remembered when
+        // the user revisits the site the next time, uncomment the following line:
+        // config.autoSyncPersistentDataPath = true;
+        // This autosyncing is currently not the default behavior to avoid regressing
+        // existing user projects that might rely on the earlier manual
+        // JS_FileSystem_Sync() behavior, but in future Unity version, this will be
+        // expected to change.
 
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
+        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+            // Mobile device style: fill the whole browser client area with the game canvas:
 
-        var meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
-        document.querySelector("#unity-container").className = "unity-mobile";
-        canvas.className = "unity-mobile";
+            var meta = document.createElement('meta');
+            meta.name = 'viewport';
+            meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+            document.getElementsByTagName('head')[0].appendChild(meta);
+            document.querySelector("#unity-container").className = "unity-mobile";
+            canvas.className = "unity-mobile";
 
-        // To lower canvas resolution on mobile devices to gain some
-        // performance, uncomment the following line:
-        // config.devicePixelRatio = 1;
+            // To lower canvas resolution on mobile devices to gain some
+            // performance, uncomment the following line:
+            // config.devicePixelRatio = 1;
 
 
-      } else {
-        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-        canvas.style.width = "360px";
-        canvas.style.height = "640px";
-      }
+        } else {
+            // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+            canvas.style.width = "360px";
+            canvas.style.height = "640px";
+        }
 
-      document.querySelector("#unity-loading-bar").style.display = "block";
+        document.querySelector("#unity-loading-bar").style.display = "block";
 
-      var script = document.createElement("script");
-      script.src = loaderUrl;
-      script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
-          document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
-              }).then((unityInstance) => {
+        var script = document.createElement("script");
+        script.src = loaderUrl;
+        script.onload = () => {
+            createUnityInstance(canvas, config, (progress) => {
+                document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
+            }).then((unityInstance) => {
                 document.querySelector("#unity-loading-bar").style.display = "none";
 
-              }).catch((message) => {
+            }).catch((message) => {
                 alert(message);
-              });
-            };
+            });
+        };
 
-      document.body.appendChild(script);
+        document.body.appendChild(script);
 
     </script>
-  </body>
+    <script>
+        function testJavaScriptFunction(msg) {
+            alert("Unity says: " + msg);
+        }
+    </script>
+</body>
 </html>
