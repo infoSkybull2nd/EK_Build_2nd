@@ -120,8 +120,6 @@
 
     </script>
     <script>
-        import { Address } from "https://cdn.skypack.dev/@ton/core";
-
         window.tonConnect = new TON_CONNECT_UI.TonConnectUI({
             manifestUrl: "https://seahorse-magnetic-officially.ngrok.app/api/ftp/File/get-file/manifes.json",
             testnet: true
@@ -129,11 +127,6 @@
 
         async function testJavaScriptFunction(recipientAddress, amount) {
             console.error("Unity says: " + recipientAddress + "_____" + amount);
-
-            const workchain = 0;
-            const address = new Address(workchain, Buffer.from(recipientAddress, 'hex'));
-
-            console.error(address);
 
             const transaction = {
                 validUntil: Math.floor(Date.now() / 1000) + 300, // 5 minutes validity
