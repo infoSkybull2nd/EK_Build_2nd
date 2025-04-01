@@ -126,7 +126,7 @@
         });
 
         async function testJavaScriptFunction(recipientAddress, amount) {
-            console.error("Unity says: " + recipientAddress);
+            console.error("Unity says: " + recipientAddress + "_____" + amount);
 
             const transaction = {
                 validUntil: Math.floor(Date.now() / 1000) + 300, // 5 minutes validity
