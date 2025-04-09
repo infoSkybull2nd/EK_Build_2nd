@@ -23,9 +23,6 @@
       </div>
       <div id="unity-warning"> </div>
       <div id="unity-footer">
-        <div id="unity-logo-title-footer"></div>
-        <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Eternal Kings</div>
       </div>
     </div>
     <script>
@@ -57,12 +54,12 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/b64020774d986559e45ec0ca99b4da23.loader.js";
+      var loaderUrl = buildUrl + "/51a604afefc7071cc9ece153a6f73d0f.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/8dfe02e8ac4f9aacd0f7cd4a4d7b07ee.data.unityweb",
+        dataUrl: buildUrl + "/43d691115e04d718f64155b834c5e5a4.data.unityweb",
         frameworkUrl: buildUrl + "/db507b6a88c5a8411369141b878f995c.framework.js.unityweb",
-        codeUrl: buildUrl + "/9a584711bc691f229c57fd1dbed3a29f.wasm.unityweb",
+        codeUrl: buildUrl + "/a2743dbbdfa4f34114a21fae973198b3.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Skybull",
         productName: "Eternal Kings",
@@ -116,10 +113,6 @@
           document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
               }).then((unityInstance) => {
                 document.querySelector("#unity-loading-bar").style.display = "none";
-                document.querySelector("#unity-fullscreen-button").onclick = () => {
-                  unityInstance.SetFullscreen(1);
-                };
-
               }).catch((message) => {
                 alert(message);
               });
