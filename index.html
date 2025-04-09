@@ -20,9 +20,6 @@
       </div>
       <div id="unity-warning"> </div>
       <div id="unity-footer">
-        <div id="unity-logo-title-footer"></div>
-        <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Eternal Kings</div>
       </div>
     </div>
     <script>
@@ -54,10 +51,10 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/973cb5d9ffafd3259d87463f58cd2f35.loader.js";
+      var loaderUrl = buildUrl + "/7ddbb04fdaa25a2e64d16e54ed50c20b.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/4a5fde819cdd304b7faf43f9f69167cd.data.unityweb",
+        dataUrl: buildUrl + "/082d566ae2b2c14bd890e4099ba65a55.data.unityweb",
         frameworkUrl: buildUrl + "/615f4b0254d6a1ac83d9d268835d44eb.framework.js.unityweb",
         codeUrl: buildUrl + "/541c56c90a902f107ce8437a8c96a98f.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
@@ -113,10 +110,6 @@
           document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
               }).then((unityInstance) => {
                 document.querySelector("#unity-loading-bar").style.display = "none";
-                document.querySelector("#unity-fullscreen-button").onclick = () => {
-                  unityInstance.SetFullscreen(1);
-                };
-
               }).catch((message) => {
                 alert(message);
               });
@@ -155,5 +148,6 @@
           console.error("❌ Transaction rejected or failed:", err);
         }
       }
+    </script>
   </body>
 </html>
