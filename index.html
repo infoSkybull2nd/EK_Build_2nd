@@ -10,9 +10,6 @@
     <script src="https://unpkg.com/@tonconnect/ui@2.1.0/dist/tonconnect-ui.min.js"></script>
   </head>
   <body>
-<div id="applixir_vanishing_div" hidden>
-   <iframe id="applixir_parent" allow="fullscreen" style="position: relative; z-index: 1;"></iframe>
-</div>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=360 height=640 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
@@ -23,9 +20,6 @@
       </div>
       <div id="unity-warning"> </div>
       <div id="unity-footer">
-        <div id="unity-logo-title-footer"></div>
-        <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Eternal Kings</div>
       </div>
     </div>
     <script>
@@ -57,12 +51,13 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/1a159ece0fd7da0a3d299a250fc907f9.loader.js";
+      var loaderUrl = buildUrl + "/e9863194db35280c311bc05cfcad3ab1.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/5b4be1c316859643ad8b981b05c72ecd.data.unityweb",
-        frameworkUrl: buildUrl + "/db507b6a88c5a8411369141b878f995c.framework.js.unityweb",
-        codeUrl: buildUrl + "/ffe3c00dfb21dc5fb9e91d29e0c232d7.wasm.unityweb",
+        dataUrl: buildUrl + "/938b03ad387e686c72718209aa0d1703.data.unityweb",
+        frameworkUrl: buildUrl + "/c4cd6b046c07e18e7cf9c38549b4a682.framework.js.unityweb",
+        workerUrl: buildUrl + "/a7ed1ae6841affddeb23d27d2479e34f.worker.js.unityweb",
+        codeUrl: buildUrl + "/d26b3d6fe3d9806f40ab6f581aac52a1.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Skybull",
         productName: "Eternal Kings",
@@ -116,10 +111,6 @@
           document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
               }).then((unityInstance) => {
                 document.querySelector("#unity-loading-bar").style.display = "none";
-                document.querySelector("#unity-fullscreen-button").onclick = () => {
-                  unityInstance.SetFullscreen(1);
-                };
-
               }).catch((message) => {
                 alert(message);
               });
@@ -128,37 +119,36 @@
       document.body.appendChild(script);
 
     </script>
-  <script type='text/javascript' src="https://cdn.applixir.com/applixir.sdk4.0m.js"></script>
-<script>
-  window.tonConnect = new TON_CONNECT_UI.TonConnectUI({
-    manifestUrl: "https://seahorse-magnetic-officially.ngrok.app/api/ftp/File/get-file/manifes.json",
-    testnet: true
-  });
+    <script>
+      window.tonConnect = new TON_CONNECT_UI.TonConnectUI({
+        manifestUrl: "https://seahorse-magnetic-officially.ngrok.app/api/ftp/File/get-file/manifes.json",
+        testnet: true
+      });
 
-  async function testJavaScriptFunction(recipientAddress, amount) {
-    console.error("Unity says: " + recipientAddress + "_____" + amount);
+      async function testJavaScriptFunction(recipientAddress, amount) {
+        console.error("Unity says: " + recipientAddress + "_____" + amount);
 
-    const transaction = {
-      validUntil: Math.floor(Date.now() / 1000) + 300, // 5 minutes validity
-      messages:
-              [
-                {
-                  address: recipientAddress, // recipient
-                  amount: amount, // 50000000 = 0.05 TON in nanoTON
-                  payload: undefined, // optional, use .toBoc().toString('base64') if needed
-                }
-              ]
-    };
+        const transaction = {
+          validUntil: Math.floor(Date.now() / 1000) + 300, // 5 minutes validity
+          messages:
+                  [
+                    {
+                      address: recipientAddress, // recipient
+                      amount: amount, // 50000000 = 0.05 TON in nanoTON
+                      payload: undefined, // optional, use .toBoc().toString('base64') if needed
+                    }
+                  ]
+        };
 
-    try {
-      const result = await window.tonConnect.sendTransaction(transaction);
-      console.log("✅ Transaction sent!");
-      console.log("📦 Result:", result);
-    }
-    catch (err) {
-      console.error("❌ Transaction rejected or failed:", err);
-    }
-  }
-</script>
-</body>
+        try {
+          const result = await window.tonConnect.sendTransaction(transaction);
+          console.log("✅ Transaction sent!");
+          console.log("📦 Result:", result);
+        }
+        catch (err) {
+          console.error("❌ Transaction rejected or failed:", err);
+        }
+      }
+    </script>
+  </body>
 </html>
