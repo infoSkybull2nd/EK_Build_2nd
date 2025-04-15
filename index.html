@@ -23,7 +23,6 @@
       </div>
       <div id="unity-warning"> </div>
       <div id="unity-footer">
-       
       </div>
     </div>
     <script>
@@ -55,12 +54,12 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/0a07a2c92f10b480d5dce123226fa4d1.loader.js";
+      var loaderUrl = buildUrl + "/b574c80528c05cec26e3b8869a00a12b.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/cefc00f3cd0d942cb98051d3c0f77141.data",
-        frameworkUrl: buildUrl + "/87ee0b157d918ae78bb9b980887c5f17.framework.js",
-        codeUrl: buildUrl + "/43a6db72e82b1b3331e76d3d96181e59.wasm",
+        dataUrl: buildUrl + "/98c64268ee259f5da812e3bfacb18509.data.unityweb",
+        frameworkUrl: buildUrl + "/86d290a5a8639e628c7b364cda250ab0.framework.js.unityweb",
+        codeUrl: buildUrl + "/4993491cb97c468100091beafdafaf3e.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Skybull",
         productName: "Eternal Kings",
@@ -149,10 +148,11 @@
       const result = await window.tonConnect.sendTransaction(transaction);
       console.log("✅ Transaction sent!");
       console.log("📦 Result:", result);
-    } catch (err) {
+    }
+    catch (err) {
       console.error("❌ Transaction rejected or failed:", err);
     }
   }
 </script>
-  </body>
+</body>
 </html>
