@@ -23,6 +23,7 @@
       </div>
       <div id="unity-warning"> </div>
       <div id="unity-footer">
+       
       </div>
     </div>
     <script>
@@ -54,12 +55,12 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/07be95ac486680b5433b672fd6d00491.loader.js";
+      var loaderUrl = buildUrl + "/0a07a2c92f10b480d5dce123226fa4d1.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/bdb850da2765a83417f120e0b4f731c2.data.unityweb",
-        frameworkUrl: buildUrl + "/87ee0b157d918ae78bb9b980887c5f17.framework.js.unityweb",
-        codeUrl: buildUrl + "/4ce960df25a814afbeae5e34765b6736.wasm.unityweb",
+        dataUrl: buildUrl + "/cefc00f3cd0d942cb98051d3c0f77141.data",
+        frameworkUrl: buildUrl + "/87ee0b157d918ae78bb9b980887c5f17.framework.js",
+        codeUrl: buildUrl + "/43a6db72e82b1b3331e76d3d96181e59.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Skybull",
         productName: "Eternal Kings",
@@ -113,6 +114,7 @@
           document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
               }).then((unityInstance) => {
                 document.querySelector("#unity-loading-bar").style.display = "none";
+
               }).catch((message) => {
                 alert(message);
               });
@@ -147,11 +149,10 @@
       const result = await window.tonConnect.sendTransaction(transaction);
       console.log("✅ Transaction sent!");
       console.log("📦 Result:", result);
-    }
-    catch (err) {
+    } catch (err) {
       console.error("❌ Transaction rejected or failed:", err);
     }
   }
 </script>
-</body>
+  </body>
 </html>
