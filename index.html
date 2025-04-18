@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
-    <script src="https://unpkg.com/@tonconnect/ui@2.1.0/dist/tonconnect-ui.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity Web Player | Eternal Kings</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
+    <script src="https://unpkg.com/@tonconnect/ui@2.1.0/dist/tonconnect-ui.min.js"></script>
   </head>
   <body>
 <div id="applixir_vanishing_div" hidden>
@@ -23,6 +23,7 @@
       </div>
       <div id="unity-warning"> </div>
       <div id="unity-footer">
+        
       </div>
     </div>
     <script>
@@ -54,12 +55,12 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/e03543a0024ebe5e74c3a654324260f5.loader.js";
+      var loaderUrl = buildUrl + "/0d3e866dbae2c5c87eaf25e884c63a7d.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/296f408e4b9a2aa4840df2d6f55aa04a.data.unityweb",
-        frameworkUrl: buildUrl + "/cc2821e4c7618df3908ea6dfb8f00e2f.framework.js.unityweb",
-        codeUrl: buildUrl + "/11981350af78b6b67a1abeb6077b6dd8.wasm.unityweb",
+        dataUrl: buildUrl + "/78bd2196987b595637b4cdba3e81c1e0.data.unityweb",
+        frameworkUrl: buildUrl + "/91315dfedcf65b7f1070c3107d1a4092.framework.js.unityweb",
+        codeUrl: buildUrl + "/c532c033ef7bc010df7d982503fc08d7.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Skybull",
         productName: "Eternal Kings",
@@ -122,38 +123,37 @@
       document.body.appendChild(script);
 
     </script>
-    <script>
-      window.tonConnect = new TON_CONNECT_UI.TonConnectUI({
-          manifestUrl: "https://seahorse-magnetic-officially.ngrok.app/api/ftp/File/get-file/manifes.json",
-          testnet: true
-      });
-  
-      async function testJavaScriptFunction(recipientAddress, amount) {
-          console.error("Unity says: " + recipientAddress + "_____" + amount);
-  
-          const transaction = {
-              validUntil: Math.floor(Date.now() / 1000) + 300, // 5 minutes validity
-              messages:
-                  [
-                      {
-                          address: recipientAddress, // recipient
-                          amount: amount, // 50000000 = 0.05 TON in nanoTON
-                          payload: undefined, // optional, use .toBoc().toString('base64') if needed
-                      }
-                  ]
-          };
-  
-          try {
-              const result = await window.tonConnect.sendTransaction(transaction);
-              console.log("✅ Transaction sent!");
-              console.log("📦 Result:", result);
-          }
-          catch (err) {
-              console.error("❌ Transaction rejected or failed:", err);
-          }
-      }
-  </script>
   <script type='text/javascript' src="https://cdn.applixir.com/applixir.sdk4.0m.js"></script>
+<script>
+  window.tonConnect = new TON_CONNECT_UI.TonConnectUI({
+    manifestUrl: "https://seahorse-magnetic-officially.ngrok.app/api/ftp/File/get-file/manifes.json",
+    testnet: true
+  });
 
+  async function testJavaScriptFunction(recipientAddress, amount) {
+    console.error("Unity says: " + recipientAddress + "_____" + amount);
+
+    const transaction = {
+      validUntil: Math.floor(Date.now() / 1000) + 300, // 5 minutes validity
+      messages:
+              [
+                {
+                  address: recipientAddress, // recipient
+                  amount: amount, // 50000000 = 0.05 TON in nanoTON
+                  payload: undefined, // optional, use .toBoc().toString('base64') if needed
+                }
+              ]
+    };
+
+    try {
+      const result = await window.tonConnect.sendTransaction(transaction);
+      console.log("✅ Transaction sent!");
+      console.log("📦 Result:", result);
+    }
+    catch (err) {
+      console.error("❌ Transaction rejected or failed:", err);
+    }
+  }
+</script>
 </body>
 </html>
