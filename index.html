@@ -57,7 +57,7 @@
       var loaderUrl = buildUrl + "/c882d8e1279bc3ccb4135f53d11312df.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/29f22f56593362ca1b3e3b96fc1fce91.data.unityweb",
+        dataUrl: buildUrl + "/8621b481e9e2939029306d6ccb03a75b.data.unityweb",
         frameworkUrl: buildUrl + "/8dd741050ae877a59c94d0785dfee2eb.framework.js.unityweb",
         codeUrl: buildUrl + "/cdf1b6b40e8e71f60be68c8f29a87c53.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
@@ -113,6 +113,7 @@
           document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
               }).then((unityInstance) => {
                 document.querySelector("#unity-loading-bar").style.display = "none";
+
               }).catch((message) => {
                 alert(message);
               });
