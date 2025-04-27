@@ -20,7 +20,6 @@
       </div>
       <div id="unity-warning"> </div>
       <div id="unity-footer">
-        
       </div>
     </div>
     <script>
@@ -55,7 +54,7 @@
       var loaderUrl = buildUrl + "/10386792c386ed960f1af6e07e5bfc86.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/c79495d81da95ae69873ddb0b05ba664.data.unityweb",
+        dataUrl: buildUrl + "/f33689e02a5e8d56afe737b3ab0026a4.data.unityweb",
         frameworkUrl: buildUrl + "/10cd3582c2faf66869046785ee8daf11.framework.js.unityweb",
         codeUrl: buildUrl + "/3e41053b15c264b424d1a67a0904de70.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
@@ -111,7 +110,7 @@
           document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
               }).then((unityInstance) => {
                 document.querySelector("#unity-loading-bar").style.display = "none";
-
+          
               }).catch((message) => {
                 alert(message);
               });
