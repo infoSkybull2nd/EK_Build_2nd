@@ -10,9 +10,6 @@
     <script src="https://unpkg.com/@tonconnect/ui@2.1.0/dist/tonconnect-ui.min.js"></script>
   </head>
   <body>
-<div id="applixir_vanishing_div" hidden>
-   <iframe id="applixir_parent" allow="fullscreen" style="position: relative; z-index: 1;"></iframe>
-</div>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=360 height=640 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
@@ -54,12 +51,12 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/c3aabd3d3de86f8e7eb597e6240a8f99.loader.js";
+      var loaderUrl = buildUrl + "/70f12dc45a1e5bedf16dc01d082fa7d7.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/6b1e46208ab2bbe5875b4613cfd304c8.data.unityweb",
-        frameworkUrl: buildUrl + "/f64ca0d2e473f0911dead3cad292acc5.framework.js.unityweb",
-        codeUrl: buildUrl + "/8cdae8053cdd8b3151e6638af653778b.wasm.unityweb",
+        dataUrl: buildUrl + "/27fd6bdaae62c16ea2db6a9fc0e02fa9.data.unityweb",
+        frameworkUrl: buildUrl + "/10cd3582c2faf66869046785ee8daf11.framework.js.unityweb",
+        codeUrl: buildUrl + "/9a8335ea651b52b98a02426beecf6a3a.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Skybull",
         productName: "Eternal Kings",
@@ -113,7 +110,7 @@
           document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
               }).then((unityInstance) => {
                 document.querySelector("#unity-loading-bar").style.display = "none";
-          
+
               }).catch((message) => {
                 alert(message);
               });
@@ -122,37 +119,36 @@
       document.body.appendChild(script);
 
     </script>
-  <script type='text/javascript' src="https://cdn.applixir.com/applixir.sdk4.0m.js"></script>
-<script>
-  window.tonConnect = new TON_CONNECT_UI.TonConnectUI({
-    manifestUrl: "https://seahorse-magnetic-officially.ngrok.app/api/ftp/File/get-file/manifes.json",
-    testnet: true
-  });
+    <script>
+      window.tonConnect = new TON_CONNECT_UI.TonConnectUI({
+        manifestUrl: "https://seahorse-magnetic-officially.ngrok.app/api/ftp/File/get-file/manifes.json",
+        testnet: true
+      });
 
-  async function testJavaScriptFunction(recipientAddress, amount) {
-    console.error("Unity says: " + recipientAddress + "_____" + amount);
+      async function testJavaScriptFunction(recipientAddress, amount) {
+        console.error("Unity says: " + recipientAddress + "_____" + amount);
 
-    const transaction = {
-      validUntil: Math.floor(Date.now() / 1000) + 300, // 5 minutes validity
-      messages:
-              [
-                {
-                  address: recipientAddress, // recipient
-                  amount: amount, // 50000000 = 0.05 TON in nanoTON
-                  payload: undefined, // optional, use .toBoc().toString('base64') if needed
-                }
-              ]
-    };
+        const transaction = {
+          validUntil: Math.floor(Date.now() / 1000) + 300, // 5 minutes validity
+          messages:
+                  [
+                    {
+                      address: recipientAddress, // recipient
+                      amount: amount, // 50000000 = 0.05 TON in nanoTON
+                      payload: undefined, // optional, use .toBoc().toString('base64') if needed
+                    }
+                  ]
+        };
 
-    try {
-      const result = await window.tonConnect.sendTransaction(transaction);
-      console.log("✅ Transaction sent!");
-      console.log("📦 Result:", result);
-    }
-    catch (err) {
-      console.error("❌ Transaction rejected or failed:", err);
-    }
-  }
-</script>
-</body>
+        try {
+          const result = await window.tonConnect.sendTransaction(transaction);
+          console.log("✅ Transaction sent!");
+          console.log("📦 Result:", result);
+        }
+        catch (err) {
+          console.error("❌ Transaction rejected or failed:", err);
+        }
+      }
+    </script>
+  </body>
 </html>
